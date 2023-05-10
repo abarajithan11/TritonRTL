@@ -1,45 +1,48 @@
 module model_tb;
 
-  localparam
-    DIR = "D:/research/tritonRTL/test/vectors/",
-    XN = 64,
-    YN = 128,
-    KN = 72,
-    BN = 8,
-    XB = 11,
-    KB = 6,
-    YB = XB+KB + $clog2(3*3*1+1);
+  localparam XD=64, XB=11, YD=16, YB=10;
 
-  logic [XN-1:0][XB-1:0] x;
-  logic [KN-1:0][KB-1:0] k;
-  logic [BN-1:0][KB-1:0] b;
-  logic [YN-1:0][YB-1:0] y;
+  logic clk=0, rstn=1, en=0;
+  logic [XD-1:0][XB-1:0] x;
+  logic [YD-1:0][YB-1:0] y;
 
-  qconv2d model (.*);
+  model model (.*);
+
+  initial forever #5ns clk = !clk;
 
   int fd, status;
-
+  localparam DIR = "D:/research/tritonRTL/test/vectors/";
   initial begin
     fd = $fopen({DIR,"x.txt"}, "r");
-    for (int xn=0; xn<XN; xn++)
+    for (int xn=0; xn<XD; xn++)
       status = $fscanf(fd, "%d", x[xn]);
     $fclose(fd);
-    
-    fd = $fopen({DIR,"k.txt"}, "r");
-    for (int kn=0; kn<KN; kn++)
-      status = $fscanf(fd, "%d", k[kn]);
-    $fclose(fd);
 
-    fd = $fopen({DIR,"b.txt"}, "r");
-    for (int bn=0; bn<BN; bn++)
-      status = $fscanf(fd, "%d", b[bn]);
-    $fclose(fd);
+    @(posedge clk) #1ns;
+    en = 1;
+    @(posedge clk) #1ns;
+    en = 0;
 
-    #(100ns);
+    @(posedge clk);
 
-    fd = $fopen({DIR,"y.txt"}, "w");
-    for (int yn=0; yn<YN; yn++)
-      $fdisplay(fd, "%d", $signed(y[yn]));
+    // fd = $fopen({DIR,"y2_sim.txt"}, "w");
+    // for (int yn=0; yn<CONV2_YD; yn++)
+    //   $fdisplay(fd, "%d", $signed(model.conv2_y[yn]));
+    // $fclose(fd);
+
+    // fd = $fopen({DIR,"y3_sim.txt"}, "w");
+    // for (int yn=0; yn<ACT3_D; yn++)
+    //   $fdisplay(fd, "%d", model.act3_y[yn]);
+    // $fclose(fd);
+
+    // fd = $fopen({DIR,"y5_sim.txt"}, "w");
+    // for (int yn=0; yn<DENSE5_YD; yn++)
+    //   $fdisplay(fd, "%d", $signed(model.dense5_y[yn]));
+    // $fclose(fd);
+
+    fd = $fopen({DIR,"y6_sim.txt"}, "w");
+    for (int yn=0; yn<YD; yn++)
+      $fdisplay(fd, "%d", model.act6_y[yn]);
     $fclose(fd);
   end
 endmodule

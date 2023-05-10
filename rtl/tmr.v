@@ -12,6 +12,7 @@ module tmr #(
       always @(posedge clk)
         if (!rstn)   triple <= {3{RESET_VAL}};
         else if (en) triple <= {3{d}};
+        else         triple <= {3{q}};
       
       always @* q = (triple[0] && triple[1]) || (triple[1] && triple[2]) || (triple[2] && triple[0]);
 

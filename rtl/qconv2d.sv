@@ -47,6 +47,6 @@ module qconv2d #(
               for (xc=0; xc<XC; xc++)
                 assign mul[xn][yh][yw][yc] [kh][kw][xc] =  $signed(x_pad[xn][SH * yh + kh][SW * yw + kw][xc]) * $signed(k[kh][kw][xc][yc]);
 
-          add #(.N(KH*KW*XC+1), .BI(MB)) ADD (.x({mul[xn][yh][yw][yc], MB'(b[yc])}), .y(y[xn][yh][yw][yc]));
+          add #(.N(KH*KW*XC+1), .BI(MB)) ADD (.x({mul[xn][yh][yw][yc], MB'($signed(b[yc]))}), .y(y[xn][yh][yw][yc]));
         end
 endmodule

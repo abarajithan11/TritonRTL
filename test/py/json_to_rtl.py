@@ -2,6 +2,10 @@ import qkeras
 import json
 import tensorflow as tf
 import numpy as np
+import os
+
+tf.keras.utils.set_random_seed(0)
+os.environ['TF_DETERMINISTIC_OPS'] = '1'
 
 
 def get_act_txt(model, act_i, name):
@@ -145,7 +149,6 @@ if __name__ == '__main__':
     '''
     Generate Input
     '''
-    tf.random.set_seed(0)
     x_shape = np.array(model.input.shape)
     x_shape[0] = 1
     x = tf.random.normal(x_shape.tolist())
@@ -234,27 +237,71 @@ if __name__ == '__main__':
             weight_assign_list.insert(0, f"{layer_type}{i}_k")
             weight_assign_list.insert(0, f"{layer_type}{i}_b")
 
-    with open('../../rtl/model.sv', 'w') as f:
-        f.write(f'''
-module model #(
+    all_localparams =f'''
 {localparam}
   localparam
     XD={first.upper()}_XD, XB={first.upper()}_XB, 
     YD={prev.upper()}_D, YB={prev.upper()}_YB,
-    WEIGHTS_B = {weights_bits}
+    WEIGHTS_B = {weights_bits}'''
+
+    with open('../../rtl/model.sv', 'w') as f:
+        f.write(f'''
+module model #({all_localparams}
 )(
-  input  logic clk, rstn, en,
+  input  logic clk, rstn, copy, k,
   input  logic [XD-1:0][XB-1:0] x,
   output logic [YD-1:0][YB-1:0] y
 );
   // TMR Weights
   
-  wire [WEIGHTS_B-1:0] weights_d = {{ {', '.join(weights_list)} }};
   wire [WEIGHTS_B-1:0] weights_q;
-  register #(.W(WEIGHTS_B)) TMR_REG (.clk(clk), .rstn(rstn), .en(en), .d(weights_d), .q(weights_q));
+  register #(.W(WEIGHTS_B)) TMR_REG (.clk(clk), .rstn(rstn), .en(copy), .d({{k, weights_q[WEIGHTS_B-1:1]}}), .q(weights_q));
   {body}
   assign {{{', '.join(weight_assign_list)}}} = weights_q;
   {chain}
   assign y = {prev}_y;
 
 endmodule''')
+        
+    with open('../sv/model_tb.sv', 'w') as f:
+        f.write(f'''
+module model_tb #({all_localparams});
+
+  wire [WEIGHTS_B-1:0] weights = {{ {', '.join(weights_list)} }};
+
+  logic clk=0, rstn=1, copy=0, k=0;
+  logic [XD-1:0][XB-1:0] x;
+  logic [YD-1:0][YB-1:0] y;
+
+  model model (.*);
+
+  initial forever #5ns clk = !clk;
+
+  int fd, status;
+  localparam DIR = "D:/research/tritonRTL/test/vectors/";
+  initial begin
+    fd = $fopen({{DIR,"x.txt"}}, "r");
+    for (int xn=0; xn<XD; xn++)
+      status = $fscanf(fd, "%d", x[xn]);
+    $fclose(fd);
+
+    @(posedge clk) #1ns;
+    
+    for (int i=0; i<WEIGHTS_B; i++) begin
+      k <= weights[i];
+      copy <= 1;
+      @(posedge clk) #1ns;
+    end
+    copy = 0;
+
+    @(posedge clk);
+
+    fd = $fopen({{DIR,"y6_sim.txt"}}, "w");
+    for (int yn=0; yn<YD; yn++)
+      $fdisplay(fd, "%d", model.act6_y[yn]);
+    $fclose(fd);
+
+    $finish();
+  end
+endmodule''')
+

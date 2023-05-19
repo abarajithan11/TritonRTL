@@ -1,0 +1,71 @@
+ 
+****************************************
+Report : area
+Design : model
+Version: Q-2019.12-SP5-3
+Date   : Thu May 18 17:47:34 2023
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'model' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    scadv10_cln65gp_lvt_tt_1p0v_25c (File: /home/linux/ieng6/ee260csp23/ee260csp23ax/TritonRTL/asic_flow/pdk/tsmc65gp/db/scadv10_cln65gp_lvt_tt_1p0v_25c.db)
+
+Number of ports:                       178311
+Number of nets:                        883544
+Number of cells:                       593742
+Number of combinational cells:         565973
+Number of sequential cells:             12874
+Number of macros/black boxes:               0
+Number of buf/inv:                      75731
+Number of references:                       7
+
+Combinational area:            2114934.752534
+Buf/Inv area:                    92023.203547
+Noncombinational area:          103009.199986
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:               2217943.952519
+Total area:                 undefined
+1
+ 
+****************************************
+Report : reference
+Design : model
+Version: Q-2019.12-SP5-3
+Date   : Thu May 18 17:48:11 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+BUFX0P8BA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000       5      8.000000  
+BUFX1MA10TL        scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000      14     22.400000  
+qact_16_0000001b_13_9_1_0      1440.000013       1   1440.000013  h
+qact_N128_XB21_XBF11_YBQ12_YBI3_NEGATIVE_SLOPE0
+                              11595.200160       1  11595.200160  h
+qconv2d_XN1_XH8_XW8_XC1_KH3_KW3_SH2_SW2_YC8_XB11_KB6
+                              578014.785350
+                                                 1  578014.785350 h
+qdense_16_128_0000000d_6      1448497.165120
+                                                 1  1448497.165120
+                                                                  h
+register_W12864               178366.401875
+                                                 1  178366.401875 h, n
+-----------------------------------------------------------------------------
+Total 7 references                                  2217943.952519
+1

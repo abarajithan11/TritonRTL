@@ -1,0 +1,58 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : register
+Version: Q-2019.12-SP5-3
+Date   : Wed May 17 19:07:30 2023
+****************************************
+
+
+Library(s) Used:
+
+    sc9_cln65lp_base_rvt_tt_typical_max_1p00v_25c (File: /home/linux/ieng6/ee260csp23/ee260csp23ax/TritonRTL/asic_flow/pdk/tsmc65lp/db/sc9_cln65lp_base_rvt_tt_typical_max_1p00v_25c.db)
+
+
+Operating Conditions: tt_typical_max_1p00v_25c   Library: sc9_cln65lp_base_rvt_tt_typical_max_1p00v_25c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+register               Small             sc9_cln65lp_base_rvt_tt_typical_max_1p00v_25c
+
+
+Global Operating Voltage = 1    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1uW
+
+
+  Cell Internal Power  =  12.0379 uW   (55%)
+  Net Switching Power  =   9.8571 uW   (45%)
+                         ---------
+Total Dynamic Power    =  21.8949 uW  (100%)
+
+Cell Leakage Power     =   3.1227 nW
+
+Information: report_power power group summary does not include estimated clock tree power. (PWR-789)
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
+sequential     9.5233e-03        2.2509e-03        2.0236e-03        1.1776e-02  (  53.78%)
+combinational  2.5145e-03        7.6062e-03        1.0991e-03        1.0122e-02  (  46.22%)
+--------------------------------------------------------------------------------------------------
+Total          1.2038e-02 mW     9.8571e-03 mW     3.1227e-03 uW     2.1898e-02 mW
+1

@@ -1,0 +1,52 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : model
+Version: Q-2019.12-SP5-3
+Date   : Thu May 18 17:49:20 2023
+****************************************
+
+
+Library(s) Used:
+
+    scadv10_cln65gp_lvt_tt_1p0v_25c (File: /home/linux/ieng6/ee260csp23/ee260csp23ax/TritonRTL/asic_flow/pdk/tsmc65gp/db/scadv10_cln65gp_lvt_tt_1p0v_25c.db)
+
+
+Operating Conditions: tt_1p0v_25c   Library: scadv10_cln65gp_lvt_tt_1p0v_25c
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =   3.4037 mW   (91%)
+  Net Switching Power  = 343.1290 uW    (9%)
+                         ---------
+Total Dynamic Power    =   3.7468 mW  (100%)
+
+Cell Leakage Power     =  18.7129 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           3.1869        1.5649e-04        7.2953e+08            3.9166  (  17.44%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.2170            0.3431        1.7983e+10           18.5435  (  82.56%)
+--------------------------------------------------------------------------------------------------
+Total              3.4039 mW         0.3432 mW     1.8713e+10 pW        22.4601 mW
+1

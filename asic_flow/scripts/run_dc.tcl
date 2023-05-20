@@ -85,7 +85,7 @@ current_design $top_module
 
 # Compile
 # Source user compile options
-compile_ultra -no_autoungroup -timing_high_effort_script -exact_map -gate_clock
+compile_ultra -timing_high_effort_script -exact_map
 
 # Write Out Design - Hierarchical
 current_design $top_module

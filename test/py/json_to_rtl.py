@@ -141,7 +141,7 @@ if __name__ == '__main__':
     '''
     Load Model
     '''
-    with open('encoder_8x8_c8_S2_tele_qK_6bit.json') as json_file:
+    with open('big_encoder.json') as json_file:
         data = json.load(json_file)
     data = json.dumps(data)
     model = qkeras.utils.quantized_model_from_json(data)
@@ -259,7 +259,8 @@ module model #({all_localparams}
   {body}
   assign {{{', '.join(weight_assign_list)}}} = weights_q;
   {chain}
-  assign y = {prev}_y;
+  always_ff @(posedge clk) 
+    y <= {prev}_y;
 
 endmodule''')
         

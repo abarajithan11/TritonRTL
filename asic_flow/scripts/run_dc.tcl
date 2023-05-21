@@ -23,12 +23,6 @@ if {[file exists template]} {
 	exec rm -rf template
 }
 exec mkdir template
-if {![file exists log]} {
-    exec mkdir log
-}
-if {![file exists gate]} {
-	exec mkdir gate
-}
 
 sh date
 sh echo hostname

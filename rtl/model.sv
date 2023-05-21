@@ -27,14 +27,14 @@ module model #(
     YD=ACT6_D, YB=ACT6_YB,
     WEIGHTS_B = 12864
 )(
-  input  logic clk, rstn, copy, k,
+  input  logic clk, copy, k,
   input  logic [XD-1:0][XB-1:0] x,
   output logic [YD-1:0][YB-1:0] y
 );
   // TMR Weights
   
   wire [WEIGHTS_B-1:0] weights_q;
-  register #(.W(WEIGHTS_B)) TMR_REG (.clk(clk), .rstn(rstn), .en(copy), .d({k, weights_q[WEIGHTS_B-1:1]}), .q(weights_q));
+  register #(.W(WEIGHTS_B)) TMR_REG (.clk(clk), .rstn(1'b1), .en(copy), .d({k, weights_q[WEIGHTS_B-1:1]}), .q(weights_q));
   
   // Conv 2
 
@@ -92,6 +92,8 @@ module model #(
   assign act3_x = conv2_y;
   assign dense5_x = act3_y;
   assign act6_x = dense5_y;
-  assign y = act6_y;
+
+  always_ff @(posedge clk)
+    y <= act6_y;
 
 endmodule

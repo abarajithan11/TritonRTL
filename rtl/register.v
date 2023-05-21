@@ -12,7 +12,7 @@ module register #(
       for (n2=0; n2<W/4; n2=n2+1) begin:N2
         localparam i = n1*(W/4) + n2;
         tmr #(
-          .TRIPLICATE (TRIPLICATE[i]),
+          // .TRIPLICATE (TRIPLICATE[i]),
           .RESET_VAL  (RESET_VAL [i])
         ) TR (
           .clk  (clk ),

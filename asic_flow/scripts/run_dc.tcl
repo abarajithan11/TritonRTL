@@ -1,4 +1,4 @@
-set top_module model
+set top_module model_big_encoder
 set rtlPath "../rtl/"
 
 set_host_options -max_cores 8
@@ -29,7 +29,7 @@ sh echo hostname
 sh echo uptime
 
 #Compiler directives
-set compile_effort   "high"
+set compile_effort   "low"
 set compile_no_new_cells_at_top_level false
 set hdlin_enable_vpp true
 set hdlin_auto_save_templates false
@@ -63,7 +63,7 @@ foreach_in_collection p [all_outputs] {
 }
 
 #More compiler directives
-set compile_effort   "high"
+set compile_effort   "low"
 set_app_var ungroup_keep_original_design true
 set_register_merging [get_designs $top_module] false
 set compile_seqmap_propagate_constants false
@@ -79,7 +79,7 @@ current_design $top_module
 
 # Compile
 # Source user compile options
-compile_ultra -timing_high_effort_script -exact_map
+compile_ultra -exact_map
 
 # Write Out Design - Hierarchical
 current_design $top_module

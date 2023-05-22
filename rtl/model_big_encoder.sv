@@ -1,5 +1,5 @@
 
-module model #(
+module model_big_encoder #(
 
   localparam
     CONV2_XB=10, CONV2_KB=5,
@@ -38,7 +38,7 @@ module model #(
   
   // Conv 2
 
-  logic [CONV2_XD-1:0] [CONV2_XB-1:0] conv2_x;
+  logic [CONV2_XD-1:0] [CONV2_XB-1:0] conv2_x, x_reg;
   logic [CONV2_KD-1:0] [CONV2_KB-1:0] conv2_k;
   logic [CONV2_BD-1:0] [CONV2_KB-1:0] conv2_b;
   logic [CONV2_YD-1:0] [CONV2_YB-1:0] conv2_y;
@@ -55,7 +55,7 @@ module model #(
   // Act 3
 
   logic [ACT3_D-1:0][ACT3_XB-1:0] act3_x;
-  logic [ACT3_D-1:0][ACT3_YB-1:0] act3_y;
+  logic [ACT3_D-1:0][ACT3_YB-1:0] act3_y, act3_y_reg;
   qact #(.N(ACT3_D), .XB(ACT3_XB), .XBF(ACT3_XBF), .YBQ(ACT3_YBQ), .YBI(ACT3_YBI), .NEGATIVE_SLOPE(ACT3_NEGATIVE_SLOPE)
     ) ACT3 (
     .x(act3_x),
@@ -88,11 +88,12 @@ module model #(
         
   assign {dense5_b, dense5_k, conv2_b, conv2_k} = weights_q;
   
-  assign conv2_x = x;
+  always_ff @(posedge clk) x_reg <= x;
+  assign conv2_x = x_reg;
   assign act3_x = conv2_y;
-  assign dense5_x = act3_y;
+  always_ff @(posedge clk) act3_y_reg <= act3_y;
+  assign dense5_x = act3_y_reg;
   assign act6_x = dense5_y;
-  always_ff @(posedge clk) 
-    y <= act6_y;
+  always_ff @(posedge clk) y <= act6_y;
 
 endmodule

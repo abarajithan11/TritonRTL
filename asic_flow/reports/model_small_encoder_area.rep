@@ -1,0 +1,122 @@
+ 
+****************************************
+Report : area
+Design : model_small_encoder
+Version: Q-2019.12-SP5-3
+Date   : Mon May 22 04:51:37 2023
+****************************************
+
+Information: Updating design information... (UID-85)
+Warning: Design 'model_small_encoder' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Library(s) Used:
+
+    scadv10_cln65gp_lvt_tt_1p0v_25c (File: /home/linux/ieng6/ee260csp23/ee260csp23ax/TritonRTL/asic_flow/pdk/tsmc65gp/db/scadv10_cln65gp_lvt_tt_1p0v_25c.db)
+
+Number of ports:                        27063
+Number of nets:                        241368
+Number of cells:                       200179
+Number of combinational cells:         157920
+Number of sequential cells:             31760
+Number of macros/black boxes:               0
+Number of buf/inv:                      24393
+Number of references:                      33
+
+Combinational area:             561082.388649
+Buf/Inv area:                    29361.201158
+Noncombinational area:          254080.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                815162.388649
+Total area:                 undefined
+1
+ 
+****************************************
+Report : reference
+Design : model_small_encoder
+Version: Q-2019.12-SP5-3
+Date   : Mon May 22 04:51:48 2023
+****************************************
+
+Attributes:
+    b - black box (unknown)
+   bo - allows boundary optimization
+    d - dont_touch
+   mo - map_only
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    s - synthetic operator
+    u - contains unmapped logic
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+-----------------------------------------------------------------------------
+AND2X0P5MA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000       1      2.400000  
+AND3X0P5MA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.800000      16     44.799999  
+AOI21X0P5MA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000      34     81.600003  
+AOI32X0P5MA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  3.200000     367   1174.400017  
+AOI32X1MA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  3.200000      65    208.000003  
+AOI211X0P5MA10TL   scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.800000      41    114.799998  
+BUFX0P8BA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000       5      8.000000  
+DFFQX0P5MA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  8.000000     272   2176.000000  n
+INVX0P5MA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.200000      90    108.000004  
+INVX0P6MA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.200000       2      2.400000  
+INVX0P8BA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.200000       1      1.200000  
+NAND2BX0P5MA10TL   scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000       4      9.600000  
+NAND2X0P5AA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000     600    960.000014  
+NAND2X0P7AA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000      83    132.800002  
+NAND2X0P7BA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000       1      1.600000  
+NAND2XBX0P7MA10TL  scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000       6     14.400001  
+NAND2XBX1MA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000       4      9.600000  
+NAND3X0P5MA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000      16     38.400002  
+NOR2X0P5AA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000     225    360.000005  
+NOR2X1MA10TL       scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  1.600000       9     14.400000  
+NOR2X1P4MA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.800000       3      8.400000  
+NOR3X0P5AA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000      44    105.600004  
+OAI21BX1MA10TL     scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  3.200000       1      3.200000  
+OAI21BX1P4MA10TL   scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  4.800000       1      4.800000  
+OAI21X0P5MA10TL    scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000       1      2.400000  
+OAI211X0P5MA10TL   scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.800000      16     44.799999  
+OAI211X0P7MA10TL   scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.800000       2      5.600000  
+OR2X0P5MA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.400000       1      2.400000  
+OR3X0P5MA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  2.800000       2      5.600000  
+OR6X0P5MA10TL      scadv10_cln65gp_lvt_tt_1p0v_25c
+                                  5.200000       4     20.799999  
+qdense_16_16_00000011_8       281721.992458
+                                                 1  281721.992458 h
+qdense_YD16_XD16_XB10_KB8     183910.795340
+                                                 1  183910.795340 h
+register_W10496               343863.600798
+                                                 1  343863.600798 h, n
+-----------------------------------------------------------------------------
+Total 33 references                                 815162.388649
+1

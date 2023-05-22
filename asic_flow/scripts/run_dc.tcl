@@ -1,4 +1,4 @@
-set top_module model_big_encoder
+set top_module model_small_encoder
 set rtlPath "../rtl/"
 
 set_host_options -max_cores 8

@@ -1,5 +1,5 @@
 
-module model #(
+module model_small_encoder #(
 
   localparam
     DENSE3_XD=16, DENSE3_YD=16, DENSE3_KB=8, DENSE3_XB=10,

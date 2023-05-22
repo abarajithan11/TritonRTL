@@ -1,0 +1,52 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : model_small_encoder
+Version: Q-2019.12-SP5-3
+Date   : Mon May 22 04:52:07 2023
+****************************************
+
+
+Library(s) Used:
+
+    scadv10_cln65gp_lvt_tt_1p0v_25c (File: /home/linux/ieng6/ee260csp23/ee260csp23ax/TritonRTL/asic_flow/pdk/tsmc65gp/db/scadv10_cln65gp_lvt_tt_1p0v_25c.db)
+
+
+Operating Conditions: tt_1p0v_25c   Library: scadv10_cln65gp_lvt_tt_1p0v_25c
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  =   7.9142 mW   (99%)
+  Net Switching Power  = 110.7881 uW    (1%)
+                         ---------
+Total Dynamic Power    =   8.0250 mW  (100%)
+
+Cell Leakage Power     =   6.2949 mW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register           7.8609        4.7134e-05        1.7963e+09            9.6573  (  67.43%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational  5.5045e-02            0.1107        4.4986e+09            4.6643  (  32.57%)
+--------------------------------------------------------------------------------------------------
+Total              7.9160 mW         0.1108 mW     6.2949e+09 pW        14.3216 mW
+1

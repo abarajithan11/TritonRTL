@@ -1,0 +1,97 @@
+*----------------------------------------------------------------------------------------
+*	Innovus 21.35-s114_1 (64bit) 10/13/2022 12:11 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2023-May-22 17:15:36 (2023-May-22 17:15:36 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: model_small_encoder
+*
+*	Liberty Libraries used: 
+*	        WC_VIEW: ../pdk/tsmc65gp/lib/scadv10_cln65gp_lvt_ss_0p9v_125c.lib
+*
+*	Power Domain used: 
+*              Rail:        VDD      Voltage:        0.9 
+*
+*       Power View : WC_VIEW
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs 
+*
+*       report_power -outfile ../reports/model_small_encoder.post_route.power.rpt
+*
+-----------------------------------------------------------------------------------------
+
+
+Total Power 
+-----------------------------------------------------------------------------------------
+Total Internal Power:       25.87804138 	   35.4956%
+Total Switching Power:      37.42720256 	   51.3370%
+Total Leakage Power:         9.59974354 	   13.1675%
+Total Power:                72.90498748 
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                         10.74        0.26       2.142       13.14       18.02 
+Macro                                  0           0           0           0           0 
+IO                                     0           0           0           0           0 
+Combinational                      14.75       35.76       7.316       57.82       79.31 
+Clock (Combinational)             0.3949       1.411      0.1421       1.947       2.671 
+Clock (Sequential)                     0           0           0           0           0 
+-----------------------------------------------------------------------------------------
+Total                              25.88       37.43         9.6        72.9         100 
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                       0.9      25.88       37.43         9.6        72.9         100 
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+clk                               0.3949       1.411      0.1421       1.947       2.671 
+-----------------------------------------------------------------------------------------
+Total (excluding duplicates)      0.3949       1.411      0.1421       1.947       2.671 
+-----------------------------------------------------------------------------------------
+Clock: clk
+Clock Period: 0.025000 usec 
+Clock Toggle Rate:    80.0000 Mhz 
+Clock Static Probability:  0.5000
+
+
+
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*                Highest Average Power: DENSE5/FE_OFC1409_act4_y_120 (BUFX9BA10TL):          0.03379 
+*                Highest Leakage Power:         CTS_ccl_buf_00356 (BUFX16BA10TL):        0.0007234 
+*          Total Cap:      2.16601e-09 F
+*          Total instances in design: 191380
+*          Total instances in design with no power:     0
+*          Total instances in design with no activity:     0
+*          Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+

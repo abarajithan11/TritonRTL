@@ -1,6 +1,6 @@
 # Load design
 set libdir 		"../pdk/tsmc65gp"
-set design 		"model"
+set design 		"model_small_encoder"
 set netlist     "../outputs/$design.out.v"
 set sdc 		"../constraints/$design.sdc"
 set best_timing_lib 	"$libdir/lib/scadv10_cln65gp_lvt_ff_1p1v_m40c.lib"

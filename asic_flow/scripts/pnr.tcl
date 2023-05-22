@@ -1,4 +1,4 @@
-setMultiCpuUsage -localCpu 8
+setMultiCpuUsage -localCpu 20
 
 source ../scripts/loadDesignTech.tcl
 source ../scripts/initialFloorplan.tcl

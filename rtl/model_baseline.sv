@@ -1,5 +1,5 @@
 
-module model #(
+module model_baseline #(
 
   localparam
     CONV2_XB=11, CONV2_KB=6,

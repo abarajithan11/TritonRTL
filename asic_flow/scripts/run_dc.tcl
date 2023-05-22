@@ -1,5 +1,5 @@
 set top_module model_small_encoder
-set rtlPath "../rtl/"
+set rtlPath "../../rtl/"
 
 set_host_options -max_cores 8
 
@@ -20,7 +20,7 @@ set dont_use_cell_list ""
 
 remove_design -all
 if {[file exists template]} {
-	exec rm -rf template
+    exec rm -rf template
 }
 exec mkdir template
 
@@ -38,8 +38,8 @@ define_design_lib WORK -path .template
 set verilogout_single_bit false
 
 # read RTL
-analyze -format sverilog -lib WORK [glob ../../rtl/*.sv]
-analyze -format verilog -lib WORK [glob ../../rtl/*.v]
+analyze -format sverilog -lib WORK [glob $rtlPath/*.sv]
+analyze -format verilog -lib WORK [glob $rtlPath/*.v]
 
 elaborate $top_module -lib WORK -update
 current_design $top_module
@@ -59,7 +59,7 @@ set_fix_hold [all_clocks]
 set_driving_cell -lib_cell BUF_X9M_A9TR -pin Y [all_inputs]
 #set_load [get_attribute "$target_library/BUF_X9M_A9TR/A" fanout_load] [all_outputs]
 foreach_in_collection p [all_outputs] {
-	set_load 0.050 $p
+    set_load 0.050 $p
 }
 
 #More compiler directives
@@ -70,9 +70,9 @@ set compile_seqmap_propagate_constants false
 set compile_seqmap_propagate_high_effort false
 # More constraints and setup before compile
 foreach_in_collection design [ get_designs "*" ] {
-	current_design $design
-	#feedthrough / outputs / constants
-	set_fix_multiple_port_nets -all
+    current_design $design
+    #feedthrough / outputs / constants
+    set_fix_multiple_port_nets -all
 }
 current_design $top_module
 
@@ -93,7 +93,7 @@ redirect [format "%s%s%s" ../reports/ $top_module _area.rep] { report_area }
 redirect -append [format "%s%s%s" ../reports/ $top_module _area.rep] { report_reference }
 redirect [format "%s%s%s" ../reports/ $top_module _power.rep] { report_power }
 redirect [format "%s%s%s" ../reports/ $top_module _timing.rep] \
-  { report_timing -path full -max_paths 100 -nets -transition_time -capacitance -significant_digits 3 -nosplit}
+    { report_timing -path full -max_paths 100 -nets -transition_time -capacitance -significant_digits 3 -nosplit}
 
 set inFile  [open ../reports/$top_module\_area.rep]
 while { [gets $inFile line]>=0 } {
@@ -106,17 +106,17 @@ set inFile  [open ../reports/$top_module\_power.rep]
 while { [gets $inFile line]>=0 } {
     if { [regexp {Total Dynamic Power} $line] } {
         set PWR [lindex $line 4]
-    } elseif { [regexp {Cell Leakage Power} $line] } {  
-        set LEAK [lindex $line 4] 
+    } elseif { [regexp {Cell Leakage Power} $line] } {
+        set LEAK [lindex $line 4]
     }
 }
 close $inFile
 
 set unmapped_designs [get_designs -filter "is_unmapped == true" $top_module]
 if {  [sizeof_collection $unmapped_designs] != 0 } {
-	echo "****************************************************"
-	echo "* ERROR!!!! Compile finished with unmapped logic.  *"
-	echo "****************************************************"
+    echo "****************************************************"
+    echo "* ERROR!!!! Compile finished with unmapped logic.  *"
+    echo "****************************************************"
 }
 # Done
 sh date

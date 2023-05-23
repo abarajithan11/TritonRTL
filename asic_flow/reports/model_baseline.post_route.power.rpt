@@ -2,7 +2,7 @@
 *	Innovus 21.35-s114_1 (64bit) 10/13/2022 12:11 (Linux 3.10.0-693.el7.x86_64)
 *	
 *
-* 	Date & Time:	2023-May-22 22:10:14 (2023-May-22 22:10:14 GMT)
+* 	Date & Time:	2023-May-23 03:17:22 (2023-May-23 03:17:22 GMT)
 *
 *----------------------------------------------------------------------------------------
 *
@@ -43,39 +43,39 @@
 
 Total Power 
 -----------------------------------------------------------------------------------------
-Total Internal Power:      109.03161856 	   32.5371%
-Total Switching Power:     171.98231942 	   51.3227%
-Total Leakage Power:        54.08590440 	   16.1402%
-Total Power:               335.09984239 
+Total Internal Power:      108.83290985 	   33.0138%
+Total Switching Power:     167.50759646 	   50.8124%
+Total Leakage Power:        53.31816542 	   16.1737%
+Total Power:               329.65867172 
 -----------------------------------------------------------------------------------------
 
 
 Group                           Internal   Switching     Leakage       Total  Percentage 
                                 Power      Power         Power         Power  (%)        
 -----------------------------------------------------------------------------------------
-Sequential                         5.543       1.936       1.696       9.175       2.738 
+Sequential                         5.127       1.464       1.235       7.825       2.374 
 Macro                                  0           0           0           0           0 
 IO                                     0           0           0           0           0 
-Combinational                      103.2       169.1       52.28       324.6       96.87 
-Clock (Combinational)             0.2877      0.9037      0.1093       1.301      0.3881 
+Combinational                      103.4       165.2       51.98       320.6       97.24 
+Clock (Combinational)             0.2784      0.8842      0.1049       1.268      0.3845 
 Clock (Sequential)                     0           0           0           0           0 
 -----------------------------------------------------------------------------------------
-Total                                109         172       54.09       335.1         100 
+Total                              108.8       167.5       53.32       329.7         100 
 -----------------------------------------------------------------------------------------
 
 
 Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
                                 Power      Power         Power         Power  (%)        
 -----------------------------------------------------------------------------------------
-VDD                       0.9        109         172       54.09       335.1         100 
+VDD                       0.9      108.8       167.5       53.32       329.7         100 
 
 
 Clock                           Internal   Switching     Leakage       Total  Percentage 
                                 Power      Power         Power         Power  (%)        
 -----------------------------------------------------------------------------------------
-clk                               0.2877      0.9037      0.1093       1.301      0.3881 
+clk                               0.2784      0.8842      0.1049       1.268      0.3845 
 -----------------------------------------------------------------------------------------
-Total (excluding duplicates)      0.2877      0.9037      0.1093       1.301      0.3881 
+Total (excluding duplicates)      0.2784      0.8842      0.1049       1.268      0.3845 
 -----------------------------------------------------------------------------------------
 Clock: clk
 Clock Period: 0.025000 usec 
@@ -86,10 +86,10 @@ Clock Static Probability:  0.5000
 
 -----------------------------------------------------------------------------------------
 *	Power Distribution Summary: 
-*                Highest Average Power: DENSE5/FE_OFC7344_act3_y_56__10 (BUFX9BA10TL):          0.02505 
-*                Highest Leakage Power: DENSE5/FE_OFC9731_act3_y_13__0 (BUFX16MA10TL):        0.0008531 
-*          Total Cap:      8.0571e-09 F
-*          Total instances in design: 531606
+*                Highest Average Power: DENSE5/FE_OFC5593_act3_y_122__9 (INVX6MA10TL):          0.02233 
+*                Highest Leakage Power: TMR_REG/CTS_ccl_a_buf_00074 (BUFX16BA10TL):        0.0007234 
+*          Total Cap:      7.87995e-09 F
+*          Total instances in design: 538684
 *          Total instances in design with no power:     0
 *          Total instances in design with no activity:     0
 *          Total Fillers and Decap:     0
